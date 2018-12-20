@@ -1,0 +1,16 @@
+{% extends "project/base.html" %}
+
+{% block content %}
+
+  <p>
+    <a href="{% url 'project:course' course.id %}">{{ course }}</a>
+  </p>
+
+  <p>Добавить новый урок:</p>
+  <form action="{% url 'project:new_lesson' course.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить урок" />
+  </form>
+  
+{% endblock content %}

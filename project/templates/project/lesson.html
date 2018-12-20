@@ -1,0 +1,16 @@
+{% extends "project/base.html" %}
+
+{% block content %}
+  
+  <p>Урок: "{{ lesson }}"</p>
+  
+  {% for topic in topics %}
+    <p>{{ topic.text|linebreaks }}</p>
+    
+  {% empty %}
+    <p>Нет доступных материалов.</p>
+    <a href="{% url 'project:new_topic' lesson.id %}">Добавить материал</a>
+  {% endfor %}
+  
+{% endblock content %}
+

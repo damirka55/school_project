@@ -1,0 +1,13 @@
+{% extends "project/base.html" %}
+
+{% block content %}
+  
+  <p>Новый курс:</p>
+  
+  <form action="{% url 'project:new_course' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить курс" />
+  </form>
+  
+{% endblock content %}

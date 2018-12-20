@@ -1,0 +1,20 @@
+{% extends "project/base.html" %}
+
+{% block content %}
+  
+  <p>Курс: {{ course }}</p>
+  
+  <p>Урок:</p>
+  <ul>
+    {% for lesson in lessons %}
+      <li>
+        <a href="{% url 'project:lesson' lesson.id %}">{{ lesson }}</a>
+      </li>
+    {% empty %}
+      <li>Нет доступных уроков.</li>
+    {% endfor %}
+  </ul>
+  
+  <a href="{% url 'project:new_lesson' course.id %}">Добавить урок</a>
+  
+{% endblock content %}
